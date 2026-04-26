@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="zh-Hant" data-lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JableTV Downloader — 最好用的 Jable TV & MissAV GUI 下載器（免費開源）</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Noto+Sans+TC:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#050508;--bg-s:#0c0c12;--bg-e:#141418;--bg-o:#1c1c24;
+  --tx:#e8e6e0;--tx2:#9a9890;--txm:#5c5a55;
+  --ac:#d4952a;--ac-d:rgba(212,149,42,.12);
+  --gd:#d4a520;--ok:#4ade80;--info:#60a5fa;
+  --bd:#1a1a22;--bd2:#252530;
+  --f-d:'Space Grotesk','Noto Sans TC',system-ui,sans-serif;
+  --f-b:'Noto Sans TC','Space Grotesk',system-ui,sans-serif;
+  --f-m:'JetBrains Mono',monospace;
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--f-b);background:var(--bg);color:var(--tx);line-height:1.8;-webkit-font-smoothing:antialiased}
+
+/* LANGUAGE TOGGLE */
+html:not([data-lang="en"]) .en{display:none!important}
+html[data-lang="en"] .zh{display:none!important}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 clamp(1rem,4vw,4rem);height:56px;background:rgba(5,5,8,.88);backdrop-filter:blur(12px);border-bottom:1px solid var(--bd)}
+.nav-logo{font-family:var(--f-m);font-size:1rem;color:var(--ac);text-decoration:none}
+.nav-logo span{color:var(--txm)}
+.nav-r{display:flex;align-items:center;gap:1rem}
+.nav-back{font-size:.85rem;color:var(--tx2);text-decoration:none}
+.nav-back:hover{color:var(--tx)}
+.lang-btn{font-family:var(--f-m);font-size:.7rem;padding:.3rem .6rem;background:var(--bg-e);border:1px solid var(--bd2);border-radius:4px;color:var(--tx2);cursor:pointer}
+.lang-btn:hover{border-color:var(--ac);color:var(--ac)}
+
+/* ARTICLE */
+.article-header{max-width:760px;margin:0 auto;padding:7rem 1.5rem 2.5rem}
+.article-meta{display:flex;align-items:center;gap:.75rem;margin-bottom:1.25rem;font-family:var(--f-m);font-size:.8rem}
+.article-date{color:var(--txm)}
+.article-tag{padding:.15rem .5rem;background:var(--ac-d);color:var(--ac);border-radius:3px;font-size:.7rem;text-transform:uppercase;letter-spacing:.05em}
+.article-header h1{font-family:var(--f-d);font-size:clamp(1.5rem,4vw,2.25rem);font-weight:700;line-height:1.25;margin-bottom:1rem}
+.lead{font-size:1.05rem;color:var(--tx2);text-wrap:pretty}
+
+.article{max-width:760px;margin:0 auto;padding:0 1.5rem 5rem}
+.article h2{font-family:var(--f-d);font-size:1.4rem;font-weight:600;margin:3rem 0 1rem;padding-top:2rem;border-top:1px solid var(--bd)}
+.article h3{font-family:var(--f-d);font-size:1.1rem;font-weight:600;margin:2rem 0 .75rem}
+.article p{color:var(--tx2);margin-bottom:1.25rem;text-wrap:pretty}
+.article strong{color:var(--tx);font-weight:600}
+.article a:not(.btn){color:var(--ac);text-decoration:underline;text-underline-offset:2px}
+
+/* SCREENSHOTS */
+.ss-block{margin:2rem 0;border-radius:6px;overflow:hidden;border:1px solid var(--bd2)}
+.ss-block img{width:100%;display:block}
+.ss-caption{padding:.75rem 1rem;background:var(--bg-s);font-size:.85rem;color:var(--tx2);border-top:1px solid var(--bd)}
+
+/* COMPARISON TABLE */
+.compare{overflow-x:auto;margin:1.5rem 0}
+.compare table{width:100%;border-collapse:collapse;font-size:.88rem}
+.compare th{font-family:var(--f-m);font-size:.7rem;text-transform:uppercase;letter-spacing:.08em;color:var(--txm);text-align:left;padding:.7rem .8rem;border-bottom:1px solid var(--bd2)}
+.compare th:not(:first-child){text-align:center}
+.compare td{padding:.6rem .8rem;border-bottom:1px solid var(--bd);color:var(--tx2)}
+.compare td:not(:first-child){text-align:center}
+.compare td:first-child{color:var(--tx);font-weight:500}
+.compare .yes{color:var(--ok);font-weight:600}
+.compare .no{color:var(--txm)}
+.compare .us{background:var(--ac-d)}
+.compare .us th{color:var(--ac)}
+
+/* FEATURE LIST */
+.feat-list{list-style:none;margin:1.5rem 0}
+.feat-list li{padding:.6rem 0;border-bottom:1px solid var(--bd);display:flex;gap:.75rem;align-items:baseline;font-size:.95rem;color:var(--tx2)}
+.feat-list li:last-child{border-bottom:none}
+.feat-list .feat-marker{font-family:var(--f-m);color:var(--ac);font-weight:600;flex-shrink:0}
+.feat-list strong{color:var(--tx)}
+
+/* STEPS */
+.step{margin:2rem 0;padding:1.5rem;background:var(--bg-s);border:1px solid var(--bd);border-radius:6px}
+.step-num{font-family:var(--f-m);font-size:.7rem;color:var(--ac);letter-spacing:.1em;margin-bottom:.5rem;text-transform:uppercase}
+.step h4{font-family:var(--f-d);font-size:1rem;font-weight:600;margin-bottom:.5rem}
+.step p{font-size:.9rem;color:var(--tx2);margin-bottom:.75rem}
+.step img{width:100%;border-radius:4px;border:1px solid var(--bd2);margin-top:.5rem}
+
+/* CODE */
+.code-inline{font-family:var(--f-m);font-size:.85em;background:var(--bg-e);padding:.15em .4em;border-radius:3px;color:var(--ac)}
+.code-block{background:var(--bg-s);border:1px solid var(--bd2);border-radius:6px;padding:1rem 1.25rem;margin:1.5rem 0;font-family:var(--f-m);font-size:.82rem;color:var(--tx2);overflow-x:auto;line-height:1.6;white-space:pre}
+
+/* DL BOX */
+.dl-box{background:var(--bg-s);border:1px solid var(--bd);border-radius:8px;padding:2rem;margin:2rem 0;text-align:center}
+.dl-box h3{font-family:var(--f-d);font-size:1.25rem;font-weight:600;margin-bottom:.5rem}
+.dl-box p{font-size:.9rem;color:var(--tx2);margin-bottom:1.25rem}
+.dl-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+.btn{font-family:var(--f-b);font-size:.88rem;font-weight:600;padding:.6rem 1.5rem;border-radius:6px;text-decoration:none;transition:all .2s;border:1px solid transparent;display:inline-block}
+.btn-p{background:var(--ac);color:#fff;border-color:var(--ac)}
+.btn-p:hover{opacity:.9}
+.btn-s{background:var(--bg-e);color:var(--tx);border-color:var(--bd2)}
+.btn-s:hover{border-color:var(--ac)}
+.dl-size{font-family:var(--f-m);font-size:.7rem;color:var(--txm);margin-top:.25rem}
+
+/* CALLOUT */
+.callout{padding:1.25rem 1.5rem;background:var(--bg-s);border:1px solid var(--bd);border-radius:6px;margin:1.5rem 0}
+.callout p{margin-bottom:0;font-size:.9rem}
+
+/* DISCLAIMER */
+.disclaimer{margin-top:3rem;padding:1.5rem;border:1px solid var(--bd);border-radius:6px;font-size:.8rem;color:var(--txm);line-height:1.6}
+
+/* AUTHOR */
+.author-box{display:flex;align-items:center;gap:1rem;padding:1.5rem 0;border-top:1px solid var(--bd);margin-top:3rem}
+.author-avatar{width:48px;height:48px;border-radius:50%;background:var(--bg-e);border:1px solid var(--bd2);display:flex;align-items:center;justify-content:center;font-family:var(--f-d);font-size:1.25rem;color:var(--ac);font-weight:700}
+.author-name{font-weight:600;font-size:.95rem}
+.author-role{font-size:.8rem;color:var(--txm)}
+
+footer{max-width:760px;margin:0 auto;padding:2rem 1.5rem;border-top:1px solid var(--bd);font-family:var(--f-m);font-size:.75rem;color:var(--txm);text-align:center}
+
+@media(max-width:640px){
+  .compare table{font-size:.78rem}
+  .dl-btns{flex-direction:column;align-items:center}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="index.html">ALOS<span>.dev</span></a>
+  <div class="nav-r">
+    <a class="nav-back" href="index.html">&larr; <span class="zh">首頁</span><span class="en">Home</span></a>
+    <button class="lang-btn" onclick="toggleLang()">EN / 中</button>
+  </div>
+</nav>
+
+<header class="article-header">
+  <div class="article-meta">
+    <span class="article-date">2026-04-26</span>
+    <span class="article-tag"><span class="zh">開源工具</span><span class="en">Open Source</span></span>
+  </div>
+  <h1>
+    <span class="zh">JableTV Downloader — 最好用的 Jable TV & MissAV GUI 下載器（免費開源）</span>
+    <span class="en">JableTV Downloader — The Best Jable TV & MissAV GUI Downloader (Free & Open Source)</span>
+  </h1>
+  <p class="lead">
+    <span class="zh">想下載 Jable TV 或 MissAV 的影片，卻不想用命令列？JableTV Downloader 是目前最好用的圖形介面下載器——免安裝、10 路並行高速下載、內建瀏覽器、自動合併影片。本文完整介紹功能與使用方式。</span>
+    <span class="en">Want to download videos from Jable TV or MissAV without using the command line? JableTV Downloader is the best GUI downloader available — portable, 10-thread parallel downloads, built-in browser, and auto video merging. This post covers all features and usage.</span>
+  </p>
+</header>
+
+<article class="article">
+
+  <!-- TOP DOWNLOAD BOX -->
+  <div class="dl-box">
+    <h3><span class="zh">立即下載</span><span class="en">Download Now</span></h3>
+    <p><span class="zh">免費、開源、免安裝。Windows 雙擊即用。</span><span class="en">Free, open source, portable. Double-click on Windows.</span></p>
+    <div class="dl-btns">
+      <div>
+        <a class="btn btn-p" href="https://github.com/Alos21750/JableTV-MissAV-Downloader-GUI-2026/releases">JableTV_Modern.exe</a>
+        <div class="dl-size">~27 MB</div>
+      </div>
+      <div>
+        <a class="btn btn-s" href="https://github.com/Alos21750/JableTV-MissAV-Downloader-GUI-2026/releases">Jable_smalltool.exe</a>
+        <div class="dl-size">~21 MB</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- INTRO -->
+  <h2>
+    <span class="zh">為什麼需要下載工具？</span>
+    <span class="en">Why Do You Need a Download Tool?</span>
+  </h2>
+  <p>
+    <span class="zh">線上觀看 Jable TV、MissAV 等影片網站時，常會遇到幾個惱人的問題：<strong>廣告彈窗太多</strong>、<strong>播放卡頓緩衝</strong>、<strong>載入速度慢</strong>。如果能預先把影片下載到電腦，就能享受流暢無廣告的觀看體驗。</span>
+    <span class="en">When streaming videos on sites like Jable TV or MissAV, you often run into annoying issues: <strong>too many ad popups</strong>, <strong>playback buffering</strong>, and <strong>slow loading</strong>. Downloading videos to your computer lets you enjoy smooth, ad-free viewing.</span>
+  </p>
+  <p>
+    <span class="zh">但問題是，這些網站的影片都使用 <strong>M3U8/HLS 串流協定</strong>，不像一般的 MP4 檔案可以直接右鍵另存。市面上的下載工具大多需要命令列操作，對一般使用者來說門檻太高。</span>
+    <span class="en">The problem is these sites use <strong>M3U8/HLS streaming protocol</strong>, so you can't just right-click and save like regular MP4 files. Most download tools require command-line operation, which is too complex for average users.</span>
+  </p>
+  <p>
+    <span class="zh"><strong>JableTV Downloader</strong> 就是為了解決這個問題而開發的。它提供完整的圖形介面，讓你像使用一般應用程式一樣輕鬆下載影片。</span>
+    <span class="en"><strong>JableTV Downloader</strong> was built to solve this problem. It provides a full graphical interface, letting you download videos as easily as using any regular app.</span>
+  </p>
+
+  <!-- MAIN SCREENSHOT -->
+  <div class="ss-block">
+    <img src="img/screenshot_browse_jable.png" alt="JableTV Downloader browse interface">
+    <div class="ss-caption">
+      <span class="zh">JableTV Downloader 瀏覽頁面 — 直接在 App 內瀏覽影片，勾選多部一鍵下載</span>
+      <span class="en">JableTV Downloader browse page — browse videos in-app, multi-select and download with one click</span>
+    </div>
+  </div>
+
+  <!-- COMPARISON -->
+  <h2>
+    <span class="zh">跟其他工具有什麼差別？</span>
+    <span class="en">How Does It Compare to Other Tools?</span>
+  </h2>
+  <p>
+    <span class="zh">市面上有一些 CLI 命令列工具和瀏覽器外掛可以下載 Jable 的影片，但跟 JableTV Downloader 比起來差距明顯：</span>
+    <span class="en">There are some CLI tools and browser extensions that can download Jable videos, but the differences are significant:</span>
+  </p>
+  <div class="compare">
+    <table>
+      <thead>
+        <tr>
+          <th></th>
+          <th class="us">JableTV Downloader</th>
+          <th><span class="zh">CLI 工具</span><span class="en">CLI Tools</span></th>
+          <th><span class="zh">瀏覽器外掛</span><span class="en">Extensions</span></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="zh">圖形介面</span><span class="en">GUI</span></td>
+          <td class="us yes">&#10003;</td><td class="no">&times;</td><td class="no">&times;</td>
+        </tr>
+        <tr>
+          <td><span class="zh">支援 MissAV</span><span class="en">MissAV</span></td>
+          <td class="us yes">&#10003;</td><td class="no"><span class="zh">通常不</span><span class="en">Usually no</span></td><td class="yes">&#10003;</td>
+        </tr>
+        <tr>
+          <td><span class="zh">批量並行</span><span class="en">Batch Parallel</span></td>
+          <td class="us yes"><span class="zh">10 路</span><span class="en">10 threads</span></td><td class="no">1</td><td class="no">1</td>
+        </tr>
+        <tr>
+          <td><span class="zh">內建瀏覽</span><span class="en">Built-in Browse</span></td>
+          <td class="us yes">&#10003;</td><td class="no">&times;</td><td class="no">&times;</td>
+        </tr>
+        <tr>
+          <td><span class="zh">免安裝</span><span class="en">Portable</span></td>
+          <td class="us yes">.exe</td><td class="no">Python</td><td class="yes">&#10003;</td>
+        </tr>
+        <tr>
+          <td><span class="zh">進度條</span><span class="en">Progress</span></td>
+          <td class="us yes">&#10003;</td><td class="no"><span class="zh">文字</span><span class="en">Text</span></td><td class="no">&times;</td>
+        </tr>
+        <tr>
+          <td><span class="zh">持續更新</span><span class="en">Maintained</span></td>
+          <td class="us yes">2026</td><td class="no"><span class="zh">多已停更</span><span class="en">Dead</span></td><td class="no"><span class="zh">不穩定</span><span class="en">Unstable</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- FEATURES -->
+  <h2>
+    <span class="zh">功能特色</span>
+    <span class="en">Features</span>
+  </h2>
+
+  <h3>
+    <span class="zh">完整下載器（JableTV_Modern.exe）</span>
+    <span class="en">Full Downloader (JableTV_Modern.exe)</span>
+  </h3>
+  <ul class="feat-list">
+    <li><span class="feat-marker">></span><strong>Material Design <span class="zh">原生介面</span><span class="en">Native UI</span></strong> — <span class="zh">深色主題桌面應用，無需瀏覽器</span><span class="en">Dark theme desktop app, no browser needed</span></li>
+    <li><span class="feat-marker">></span><strong><span class="zh">內建瀏覽器</span><span class="en">Built-in Browser</span></strong> — <span class="zh">直接在 App 內瀏覽分類、搜尋關鍵字、翻頁</span><span class="en">Browse categories, search keywords, paginate in-app</span></li>
+    <li><span class="feat-marker">></span><strong><span class="zh">多選下載</span><span class="en">Multi-Select</span></strong> — <span class="zh">勾選多部影片，一鍵送入下載佇列</span><span class="en">Check multiple videos, send to download queue in one click</span></li>
+    <li><span class="feat-marker">></span><strong><span class="zh">10 路並行下載</span><span class="en">10 Parallel Downloads</span></strong> — <span class="zh">同時下載最多 10 部，可於設定頁調整</span><span class="en">Download up to 10 simultaneously, configurable in settings</span></li>
+    <li><span class="feat-marker">></span><strong><span class="zh">畫質選擇</span><span class="en">Quality Selection</span></strong> — <span class="zh">最高畫質（預設）或最低畫質（省流量）</span><span class="en">Highest (default) or lowest quality (save bandwidth)</span></li>
+    <li><span class="feat-marker">></span><strong><span class="zh">速度限制</span><span class="en">Speed Limit</span></strong> — <span class="zh">可設定 1/2/5/10/15 MB/s 或無限制</span><span class="en">Set 1/2/5/10/15 MB/s or unlimited</span></li>
+    <li><span class="feat-marker">></span><strong><span class="zh">即時進度條</span><span class="en">Real-time Progress</span></strong> — <span class="zh">每部影片獨立顯示進度、速度、狀態</span><span class="en">Per-video progress, speed, and status display</span></li>
+    <li><span class="feat-marker">></span><strong><span class="zh">智慧剪貼簿</span><span class="en">Smart Clipboard</span></strong> — <span class="zh">複製網址自動偵測加入佇列</span><span class="en">Auto-detect copied URLs and add to queue</span></li>
+    <li><span class="feat-marker">></span><strong><span class="zh">自動合併</span><span class="en">Auto Merge</span></strong> — <span class="zh">TS 片段自動合併為完整 MP4</span><span class="en">Auto merge TS segments into complete MP4</span></li>
+    <li><span class="feat-marker">></span><strong><span class="zh">斷點續傳</span><span class="en">Resume Downloads</span></strong> — <span class="zh">取消後重新下載，已完成片段不會重抓</span><span class="en">Resume interrupted downloads without re-fetching completed segments</span></li>
+    <li><span class="feat-marker">></span><strong><span class="zh">高 DPI 支援</span><span class="en">HiDPI Support</span></strong> — <span class="zh">自動適配高解析度螢幕</span><span class="en">Auto-scale for high resolution displays</span></li>
+  </ul>
+
+  <h3>
+    <span class="zh">每日自動下載（Jable_smalltool.exe）</span>
+    <span class="en">Daily Auto-Download (Jable_smalltool.exe)</span>
+  </h3>
+  <ul class="feat-list">
+    <li><span class="feat-marker">></span><strong><span class="zh">一次設定，每日自動</span><span class="en">Set Once, Auto Daily</span></strong> — <span class="zh">選一次資料夾，程式每 24 小時自動檢查</span><span class="en">Pick a folder once, app checks every 24 hours</span></li>
+    <li><span class="feat-marker">></span><strong><span class="zh">鎖定中文字幕</span><span class="en">Chinese Subtitles Only</span></strong> — <span class="zh">只抓有中文字幕的新片</span><span class="en">Only downloads videos with Chinese subtitles</span></li>
+    <li><span class="feat-marker">></span><strong><span class="zh">去重記憶</span><span class="en">Deduplication</span></strong> — <span class="zh">下載過的不會重抓</span><span class="en">Already downloaded videos won't be re-downloaded</span></li>
+    <li><span class="feat-marker">></span><strong><span class="zh">可背景常駐</span><span class="en">Background Mode</span></strong> — <span class="zh">最小化到工作列即可</span><span class="en">Minimize to system tray</span></li>
+  </ul>
+
+  <!-- HOW TO USE -->
+  <h2>
+    <span class="zh">使用方式</span>
+    <span class="en">How to Use</span>
+  </h2>
+
+  <div class="step">
+    <div class="step-num">Step 1</div>
+    <h4><span class="zh">下載並執行</span><span class="en">Download and Run</span></h4>
+    <p>
+      <span class="zh">前往 <a href="https://github.com/Alos21750/JableTV-MissAV-Downloader-GUI-2026/releases">GitHub Releases</a> 下載 <strong>JableTV_Modern.exe</strong>（約 27 MB）。雙擊執行，不需要安裝任何東西。</span>
+      <span class="en">Go to <a href="https://github.com/Alos21750/JableTV-MissAV-Downloader-GUI-2026/releases">GitHub Releases</a> and download <strong>JableTV_Modern.exe</strong> (~27 MB). Double-click to run — no installation needed.</span>
+    </p>
+  </div>
+
+  <div class="step">
+    <div class="step-num">Step 2</div>
+    <h4><span class="zh">瀏覽影片</span><span class="en">Browse Videos</span></h4>
+    <p>
+      <span class="zh">切換到「瀏覽」分頁，選擇 JableTV 或 MissAV，瀏覽分類或搜尋關鍵字。看到喜歡的影片，勾選前方的核取方塊。</span>
+      <span class="en">Switch to the "Browse" tab, select JableTV or MissAV, browse categories or search keywords. Check the checkbox next to videos you like.</span>
+    </p>
+    <img src="img/screenshot_browse_jable.png" alt="Browse page">
+  </div>
+
+  <div class="step">
+    <div class="step-num">Step 3</div>
+    <h4><span class="zh">開始下載</span><span class="en">Start Downloading</span></h4>
+    <p>
+      <span class="zh">點擊「下載選中」或切換到「下載」分頁直接貼上網址。下載佇列會顯示每部影片的即時進度條、下載速度和狀態。</span>
+      <span class="en">Click "Download Selected" or switch to the "Download" tab and paste URLs directly. The queue shows real-time progress bars, speed, and status for each video.</span>
+    </p>
+    <img src="img/screenshot_download.png" alt="Download manager">
+  </div>
+
+  <div class="step">
+    <div class="step-num">Step 4</div>
+    <h4><span class="zh">調整設定（選用）</span><span class="en">Adjust Settings (Optional)</span></h4>
+    <p>
+      <span class="zh">在「設定」分頁可以調整：存放位置、速度限制、並行下載數、畫質選擇。預設值已經夠用，但你可以依需求微調。</span>
+      <span class="en">In the "Settings" tab you can adjust: save location, speed limit, parallel downloads, quality selection. Defaults work well, but you can fine-tune as needed.</span>
+    </p>
+    <img src="img/screenshot_settings.png" alt="Settings page">
+  </div>
+
+  <!-- ALTERNATIVE: macOS/Linux -->
+  <h2>
+    <span class="zh">macOS / Linux 使用者</span>
+    <span class="en">macOS / Linux Users</span>
+  </h2>
+  <p>
+    <span class="zh">非 Windows 使用者可以透過 Python 直接執行。確認已安裝 Python 3.8 以上版本：</span>
+    <span class="en">Non-Windows users can run it directly with Python. Make sure you have Python 3.8+ installed:</span>
+  </p>
+  <div class="code-block"># 1. <span class="zh">安裝相依套件</span><span class="en">Install dependencies</span>
+pip install -r requirements.txt
+
+# 2. <span class="zh">啟動完整下載器</span><span class="en">Launch full downloader</span>
+python main.py
+
+# 3. <span class="zh">啟動自動下載小工具</span><span class="en">Launch auto-download tool</span>
+python jable_smalltool.py</div>
+
+  <!-- SUPPORTED SITES -->
+  <h2>
+    <span class="zh">支援網站</span>
+    <span class="en">Supported Sites</span>
+  </h2>
+  <div class="compare" style="max-width:480px">
+    <table>
+      <thead>
+        <tr>
+          <th><span class="zh">網站</span><span class="en">Site</span></th>
+          <th><span class="zh">瀏覽</span><span class="en">Browse</span></th>
+          <th><span class="zh">搜尋</span><span class="en">Search</span></th>
+          <th><span class="zh">下載</span><span class="en">Download</span></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Jable.tv</td><td class="yes">&#10003;</td><td class="yes">&#10003;</td><td class="yes">&#10003;</td></tr>
+        <tr><td>MissAV</td><td class="yes">&#10003;</td><td class="yes">&#10003;</td><td class="yes">&#10003;</td></tr>
+        <tr><td><span class="zh">其他 M3U8</span><span class="en">Other M3U8</span></td><td class="no">&mdash;</td><td class="no">&mdash;</td><td class="yes">&#10003;</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- DOWNLOAD BOX -->
+  <div class="dl-box">
+    <h3><span class="zh">立即下載</span><span class="en">Download Now</span></h3>
+    <p><span class="zh">免費、開源、免安裝。Windows 雙擊即用。</span><span class="en">Free, open source, portable. Double-click on Windows.</span></p>
+    <div class="dl-btns">
+      <div>
+        <a class="btn btn-p" href="https://github.com/Alos21750/JableTV-MissAV-Downloader-GUI-2026/releases">JableTV_Modern.exe</a>
+        <div class="dl-size">~27 MB</div>
+      </div>
+      <div>
+        <a class="btn btn-s" href="https://github.com/Alos21750/JableTV-MissAV-Downloader-GUI-2026/releases">Jable_smalltool.exe</a>
+        <div class="dl-size">~21 MB</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DISCLAIMER -->
+  <div class="disclaimer">
+    <span class="zh"><strong>免責聲明：</strong>本工具僅供學習與技術研究用途。使用者應遵守當地法律法規，尊重內容版權。開發者不對任何因使用本工具而產生的法律責任負責。請勿將本工具用於任何非法或侵權用途。</span>
+    <span class="en"><strong>Disclaimer:</strong> This tool is for educational and research purposes only. Users should comply with local laws and respect content copyrights. The developer is not responsible for any legal liability arising from the use of this tool.</span>
+  </div>
+
+  <!-- AUTHOR -->
+  <div class="author-box">
+    <div class="author-avatar">A</div>
+    <div>
+      <div class="author-name">ALOS</div>
+      <div class="author-role"><span class="zh">先進通訊技術開發工程師 @ MediaTek</span><span class="en">Advanced Communication Technology Engineer @ MediaTek</span></div>
+    </div>
+  </div>
+
+</article>
+
+<footer>&copy; 2026 ALOS &middot; Apache License 2.0</footer>
+
+<script>
+function toggleLang(){
+  var cur=document.documentElement.getAttribute('data-lang')||'zh';
+  var next=cur==='zh'?'en':'zh';
+  document.documentElement.setAttribute('data-lang',next);
+  document.documentElement.lang=next==='zh'?'zh-Hant':'en';
+  localStorage.setItem('lang',next);
+}
+(function(){
+  var l=localStorage.getItem('lang')||'zh';
+  document.documentElement.setAttribute('data-lang',l);
+  document.documentElement.lang=l==='zh'?'zh-Hant':'en';
+})();
+</script>
+</body>
+</html>
