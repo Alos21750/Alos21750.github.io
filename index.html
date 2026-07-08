@@ -4,141 +4,143 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Chung-Yin (Nick) Ho — Communication Systems × AI Engineer</title>
-<meta name="description" content="Chung-Yin (Nick) Ho — Communication Systems × AI engineer at MediaTek. 3GPP PHY-to-RRC, on-device ML, AI-RAN, system-level simulation. AI-RAN Alliance demo @ MWC 2026.">
+<meta name="description" content="Chung-Yin (Nick) Ho — Senior Engineer, Communication System Design at MediaTek (5G-Advanced / 6G). AI in the modem: AI-RAN, on-device ML, 3GPP PHY-to-RRC, system-level simulation. AI-RAN Alliance demo @ MWC 2026.">
 <meta property="og:title" content="Chung-Yin (Nick) Ho — Communication Systems × AI Engineer">
-<meta property="og:description" content="Full wireless stack and the AI that runs on it — 3GPP standardization, system-level simulation, and on-device AI shipped to live silicon. AI-RAN Alliance @ MWC 2026.">
+<meta property="og:description" content="Senior Engineer, Communication System Design @ MediaTek. AI-accelerated uplink (AI TxD) — an AI-RAN Alliance demo at MWC 2026, validated with Keysight · 3GPP RAN1/RAN2 · on-device ML (MCU/DSP) · allowed US patent · IEEE-published.">
 <meta property="og:type" content="profile">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fira+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
 :root{
-  --paper:#FCFCFA; --panel:#FFFFFF; --ink:#17191E; --sub:#565A63; --faint:#8A8E97;
-  --accent:#0F3E6E; --accent-soft:#e9eef5; --line:#E4E3DC; --line-strong:#cfd0c9;
-  --mono:"IBM Plex Mono",ui-monospace,"SFMono-Regular",Menlo,monospace;
-  --sans:"IBM Plex Sans",system-ui,"Segoe UI",sans-serif;
-  --disp:"Space Grotesk","IBM Plex Sans",system-ui,sans-serif;
+  --paper:#F4F1E9; --panel:#FBFAF4; --ink:#1C1B17; --sub:#656256; --faint:#6F6C62;
+  --accent:#A8452B; --accent-tint:#F1E5DD; --accent-line:#e3c9bd;
+  --line:#E0DBCD; --line-2:#cec8b7;
+  --mono:"Fira Mono",ui-monospace,"SFMono-Regular",Menlo,Consolas,monospace;
 }
 *{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
-body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:15.5px;line-height:1.62;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--mono);font-size:14px;line-height:1.72;-webkit-font-smoothing:antialiased}
 a{color:var(--accent);text-decoration:none}
-.wrap{max-width:940px;margin:0 auto;padding:0 30px}
+a:hover{text-decoration:underline;text-underline-offset:2px}
+a:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:2px}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+.wrap{max-width:900px;margin:0 auto;padding:0 30px}
 .topbar{height:4px;background:var(--accent)}
+b,strong{font-weight:700}
 
-/* ---- header ---- */
-header{padding:56px 0 30px;border-bottom:1px solid var(--line)}
-.eyebrow{font-family:var(--mono);font-size:11.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--faint);margin:0 0 14px}
-h1{font-family:var(--disp);font-weight:700;font-size:clamp(34px,6.2vw,54px);line-height:1.02;letter-spacing:-.015em;margin:0}
-h1 .zh{font-weight:500;color:var(--sub);font-size:.52em;letter-spacing:.02em;margin-left:.35em}
-.role-line{font-family:var(--disp);font-weight:500;font-size:clamp(15px,2.4vw,19px);color:var(--accent);margin:14px 0 0;letter-spacing:-.01em}
-.tags{font-family:var(--mono);font-size:12.5px;color:var(--sub);margin:10px 0 0;letter-spacing:.01em}
-.tags b{color:var(--ink);font-weight:600}
-.contact{font-family:var(--mono);font-size:12.5px;color:var(--sub);margin:22px 0 0;display:flex;flex-wrap:wrap;gap:5px 0;align-items:center}
+/* ---------- header ---------- */
+header{padding:52px 0 26px}
+.hero{display:flex;gap:34px;align-items:flex-start;justify-content:space-between}
+.hero-main{flex:1;min-width:0}
+.eyebrow{font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--accent);font-weight:500;margin:0 0 15px}
+h1{font-weight:700;font-size:clamp(30px,5.4vw,46px);line-height:1.04;letter-spacing:-.02em;margin:0}
+h1 .zh{display:block;font-weight:400;color:var(--sub);font-size:15px;letter-spacing:.04em;margin-top:9px}
+.headline{font-size:clamp(14px,2vw,16px);line-height:1.5;color:var(--ink);font-weight:500;margin:18px 0 0;max-width:34em}
+.headline .em{color:var(--accent)}
+.contact{font-size:12px;color:var(--sub);margin:20px 0 0;display:flex;flex-wrap:wrap;align-items:center;gap:2px 0}
 .contact a{color:var(--accent)}
-.contact a:hover{text-decoration:underline}
-.contact .sep{color:var(--line-strong);margin:0 11px}
+.contact .sep{color:var(--line-2);margin:0 10px}
+.portrait{flex:0 0 auto;width:132px;height:132px;object-fit:cover;border-radius:3px;border:1px solid var(--line-2);filter:saturate(1.02)}
 
-/* ---- spec strip ---- */
-.specs{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid var(--line);border-radius:3px;margin:30px 0 0;overflow:hidden;background:var(--panel)}
-.spec{padding:13px 16px;border-right:1px solid var(--line)}
-.spec:last-child{border-right:none}
-.spec .k{font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--faint)}
-.spec .v{font-family:var(--disp);font-weight:600;font-size:15px;color:var(--ink);margin-top:3px;line-height:1.25}
-.spec .v b{color:var(--accent)}
+/* ---------- metric row ---------- */
+.metrics{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:3px;margin:28px 0 0;overflow:hidden}
+.metric{background:var(--panel);padding:12px 13px}
+.metric .n{font-weight:700;font-size:16px;color:var(--accent);line-height:1.15}
+.metric .l{font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--sub);margin-top:4px;line-height:1.3}
 
-/* ---- sections ---- */
-section{padding:34px 0 4px;border-bottom:1px solid var(--line)}
-section:last-of-type{border-bottom:none}
-.sec-head{display:flex;align-items:baseline;gap:14px;margin:0 0 18px}
-.sec-no{font-family:var(--mono);font-size:12px;color:var(--accent);font-weight:600;letter-spacing:.05em}
-h2{font-family:var(--disp);font-weight:600;font-size:14px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink);margin:0}
+/* ---------- flagship callout ---------- */
+.flagship{margin:26px 0 0;background:var(--accent-tint);border:1px solid var(--accent-line);border-radius:4px;padding:18px 20px}
+.flagship .fl-lab{font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);font-weight:700}
+.flagship .fl-h{font-weight:700;font-size:16.5px;color:var(--ink);margin:7px 0 6px;line-height:1.3}
+.flagship .fl-b{font-size:13px;color:#40372f;line-height:1.62}
+.flagship .fl-b b{color:var(--accent)}
+.flagship .fl-links{font-size:11.5px;margin-top:9px;color:var(--sub)}
+.flagship .fl-links a{color:var(--accent)}
+
+/* ---------- sections ---------- */
+section{padding:32px 0 6px;border-top:1px solid var(--line)}
+.sec-head{display:flex;align-items:baseline;gap:12px;margin:0 0 16px}
+.sec-no{font-size:12px;color:var(--accent);font-weight:700}
+h2{font-weight:700;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink);margin:0}
 .sec-rule{flex:1;height:1px;background:var(--line);align-self:center}
 
-.lead-p{margin:0;font-size:16px;line-height:1.66;color:#26282e}
-.lead-p b{color:var(--ink);font-weight:600}
+.lead-p{margin:0;font-size:13.5px;line-height:1.74;color:#2c2a24;max-width:66em}
+.lead-p b{color:var(--accent);font-weight:700}
 
-/* highlights */
-.hl{list-style:none;margin:0;padding:0;display:grid;gap:13px}
-.hl li{position:relative;padding-left:24px;line-height:1.58}
-.hl li::before{content:"";position:absolute;left:2px;top:9px;width:8px;height:8px;background:var(--accent);border-radius:1px}
-.hl b{color:var(--ink);font-weight:600}
+.hl{list-style:none;margin:0;padding:0;display:grid;gap:12px}
+.hl li{position:relative;padding-left:22px;line-height:1.62;font-size:13.5px;color:#2c2a24}
+.hl li::before{content:"▹";position:absolute;left:0;top:0;color:var(--accent);font-weight:700}
+.hl b{color:var(--ink)}
 
 /* experience */
-.role{margin:0 0 26px}
-.role:last-child{margin-bottom:6px}
-.role-head{display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap}
-.role-title{font-family:var(--disp);font-weight:600;font-size:17px;color:var(--ink)}
+.role{margin:0 0 24px}
+.role:last-child{margin-bottom:4px}
+.role-head{display:flex;justify-content:space-between;align-items:baseline;gap:14px;flex-wrap:wrap}
+.role-title{font-weight:700;font-size:15px;color:var(--ink)}
 .role-title .org{color:var(--accent)}
-.role-meta{font-family:var(--mono);font-size:12px;color:var(--sub);white-space:nowrap}
-.role-sub{font-size:13.5px;color:var(--sub);font-style:italic;margin:2px 0 9px}
-.role ul{margin:0;padding:0;list-style:none;display:grid;gap:9px}
-.role li{position:relative;padding-left:18px;line-height:1.56;font-size:14.7px;color:#2b2d33}
-.role li::before{content:"—";position:absolute;left:0;top:0;color:var(--line-strong);font-weight:600}
-.lead{font-weight:600;color:var(--ink)}
-.meta-inline{font-family:var(--mono);font-size:11.5px;color:var(--sub)}
-.meta-inline a{color:var(--accent)}
-.meta-inline a:hover{text-decoration:underline}
+.role-meta{font-size:11.5px;color:var(--sub);white-space:nowrap}
+.role-sub{font-size:12px;color:var(--sub);margin:3px 0 9px}
+.role ul{margin:0;padding:0;list-style:none;display:grid;gap:8px}
+.role li{position:relative;padding-left:16px;line-height:1.6;font-size:13px;color:#33302a}
+.role li::before{content:"–";position:absolute;left:0;top:0;color:var(--line-2);font-weight:700}
+.lead{font-weight:700;color:var(--accent)}
+.role .sub-links{font-size:11px;color:var(--sub);margin-top:3px}
+.role .sub-links a{color:var(--accent)}
 
 /* patents + publications */
-.item{padding:14px 0;border-top:1px solid var(--line)}
+.item{padding:13px 0;border-top:1px dashed var(--line)}
 .item:first-child{border-top:none}
-.item .t{font-weight:600;color:var(--ink);font-size:15px}
-.item .d{color:var(--sub);font-size:14px;margin-top:3px;line-height:1.55}
-.patid{font-family:var(--mono);font-weight:600;font-size:13px;color:var(--accent)}
-.patid a{color:var(--accent)}
-.patid a:hover{text-decoration:underline}
-.tag-mono{font-family:var(--mono);font-size:11px;color:var(--sub);letter-spacing:.02em}
-.fam{font-family:var(--mono);font-size:11.5px;color:var(--sub)}
-.fam a{color:var(--accent)}.fam a:hover{text-decoration:underline}
-.pub{display:flex;justify-content:space-between;gap:16px;align-items:baseline;flex-wrap:wrap;padding:12px 0;border-top:1px solid var(--line)}
+.item .t{font-size:13.5px;color:var(--ink)}
+.patid{font-weight:700;font-size:13px;color:var(--accent)}
+.item .m{color:var(--sub);font-size:11.5px}
+.item .d{color:#40382f;font-size:12.5px;margin-top:4px;line-height:1.6}
+.fam{font-size:11.5px;color:var(--sub);margin-top:4px}
+.fam a{color:var(--accent)}
+.pub{display:flex;justify-content:space-between;gap:14px;align-items:baseline;flex-wrap:wrap;padding:11px 0;border-top:1px dashed var(--line)}
 .pub:first-of-type{border-top:none}
-.pub .pt{font-weight:500;color:var(--ink);font-size:14.6px;max-width:640px;line-height:1.5}
-.pub .pv{font-family:var(--mono);font-size:11.5px;color:var(--sub);white-space:nowrap}
+.pub .pt{color:var(--ink);font-size:13px;max-width:600px;line-height:1.5}
+.pub .pv{font-size:11px;color:var(--sub);white-space:nowrap}
 .pub .pv a{color:var(--accent)}
-.pub .pv a:hover{text-decoration:underline}
-.xarrow{font-size:11px}
-.scholar-note{font-family:var(--mono);font-size:12px;color:var(--sub);margin-top:12px}
-.scholar-note a{color:var(--accent)}.scholar-note a:hover{text-decoration:underline}
+.scholar-note{font-size:11.5px;color:var(--sub);margin-top:12px}
+.scholar-note a{color:var(--accent)}
 
-/* skills */
-.skills{display:grid;grid-template-columns:150px 1fr;row-gap:14px;column-gap:24px}
-.skills .k{font-family:var(--mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--accent);font-weight:600;padding-top:1px}
-.skills .v{color:#2b2d33;font-size:14.6px;line-height:1.55}
+/* skills as chips */
+.skblock{margin:0 0 14px}
+.skblock .sk-k{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);font-weight:700;margin-bottom:7px}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{font-size:11.5px;color:#33302a;background:var(--panel);border:1px solid var(--line-2);border-radius:3px;padding:3px 9px;line-height:1.5}
 
 /* education */
-.edu{display:flex;justify-content:space-between;gap:16px;align-items:baseline;flex-wrap:wrap}
-.edu .d{font-weight:600;color:var(--ink)}
-.edu .d .em{color:var(--sub);font-weight:500}
-.edu .m{font-family:var(--mono);font-size:12px;color:var(--sub);white-space:nowrap}
+.edu{display:flex;justify-content:space-between;gap:14px;align-items:baseline;flex-wrap:wrap}
+.edu .d{font-weight:700;color:var(--ink);font-size:13.5px}
+.edu .d .em{color:var(--sub);font-weight:400;display:block;margin-top:3px}
+.edu .m{font-size:11.5px;color:var(--sub);white-space:nowrap}
 
-/* footer */
-footer{padding:34px 0 46px}
-.foot-line{font-family:var(--mono);font-size:11.5px;color:var(--faint);letter-spacing:.02em;display:flex;flex-wrap:wrap;gap:4px 0;align-items:center}
-.foot-line .sep{color:var(--line-strong);margin:0 10px}
-.foot-line a{color:var(--sub)}.foot-line a:hover{color:var(--accent)}
+footer{padding:30px 0 46px;border-top:1px solid var(--line);margin-top:30px}
+.foot-line{font-size:11px;color:var(--sub);display:flex;flex-wrap:wrap;align-items:center;gap:2px 0}
+.foot-line .sep{color:var(--line-2);margin:0 9px}
+.foot-line a{color:var(--sub)}
 
 @media(max-width:640px){
   .wrap{padding:0 20px}
-  header{padding:40px 0 24px}
-  .specs{grid-template-columns:1fr 1fr}
-  .spec:nth-child(2){border-right:none}
-  .spec:nth-child(1),.spec:nth-child(2){border-bottom:1px solid var(--line)}
-  .contact .sep{margin:0 8px}
+  header{padding:36px 0 20px}
+  .hero{flex-direction:column-reverse;align-items:flex-start;gap:18px}
+  .portrait{width:104px;height:104px}
+  .metrics{grid-template-columns:1fr 1fr}
+  .metrics .metric:last-child{grid-column:1 / -1}
+  .contact .sep{margin:0 7px}
   .role-meta{white-space:normal}
-  .skills{grid-template-columns:1fr;row-gap:4px}
-  .skills .k{padding-top:12px}
-  .skills .v{margin-bottom:2px}
   .pub .pv{white-space:normal}
 }
 @media print{
-  :root{--paper:#fff}
-  body{font-size:10.4pt}
-  .topbar{display:none}
+  :root{--paper:#fff;--panel:#fff}
+  .topbar,.portrait{display:none}
+  body{font-size:9.6pt}
   a{color:var(--accent)}
-  section{break-inside:avoid;border-bottom:1px solid #ddd}
+  .flagship,.metrics,.role,.item,.pub,.edu{break-inside:avoid}
+  .sec-head{break-after:avoid}
   header{padding-top:0}
-  .specs{break-inside:avoid}
 }
 </style>
 </head>
@@ -147,43 +149,54 @@ footer{padding:34px 0 46px}
 <div class="wrap">
 
   <header>
-    <p class="eyebrow">Communication Systems × AI · Hsinchu, Taiwan</p>
-    <h1>Chung-Yin&nbsp;Ho <span class="zh">何忠穎 · “Nick”</span></h1>
-    <p class="role-line">Communication System Design Engineer — the full wireless stack, and the AI that now runs on it.</p>
-    <p class="tags"><b>3GPP PHY-to-RRC</b> &nbsp;·&nbsp; <b>On-Device ML</b> &nbsp;·&nbsp; <b>AI-RAN</b> &nbsp;·&nbsp; <b>System-Level Simulation</b></p>
-    <p class="contact">
-      <a href="mailto:mtk21750@gmail.com">mtk21750@gmail.com</a>
-      <span class="sep">/</span>
-      <a href="tel:+886989158362">+886&nbsp;989&nbsp;158&nbsp;362</a>
-      <span class="sep">/</span>
-      <a href="https://www.linkedin.com/in/nick-ho-240859134/" target="_blank" rel="noopener">LinkedIn</a>
-      <span class="sep">/</span>
-      <a href="https://scholar.google.com/citations?user=VZj4-8kAAAAJ&amp;hl=en" target="_blank" rel="noopener">Google&nbsp;Scholar</a>
-      <span class="sep">/</span>
-      TOEIC&nbsp;835
-    </p>
-    <div class="specs">
-      <div class="spec"><div class="k">Tenure</div><div class="v">6 yrs · <b>MediaTek</b></div></div>
-      <div class="spec"><div class="k">Patents</div><div class="v">US · <b>Allowed</b></div></div>
-      <div class="spec"><div class="k">Research</div><div class="v">4 IEEE · <b>53</b> cites</div></div>
-      <div class="spec"><div class="k">Flagship</div><div class="v">AI-RAN · <b>MWC&nbsp;2026</b></div></div>
+    <div class="hero">
+      <div class="hero-main">
+        <p class="eyebrow">Communication Systems × AI · Hsinchu, Taiwan</p>
+        <h1>Chung-Yin Ho<span class="zh">何忠穎 · “Nick” · Senior Engineer @ MediaTek</span></h1>
+        <p class="headline">I bring AI into the heart of the modem — <span class="em">where cellular PHY meets machine learning</span>, from 3GPP standards to models running on live silicon.</p>
+        <p class="contact">
+          <a href="mailto:mtk21750@gmail.com">mtk21750@gmail.com</a>
+          <span class="sep">/</span>
+          <a href="https://www.linkedin.com/in/nick-ho-240859134/" target="_blank" rel="noopener">LinkedIn</a>
+          <span class="sep">/</span>
+          <a href="https://scholar.google.com/citations?user=VZj4-8kAAAAJ&amp;hl=en" target="_blank" rel="noopener">Google&nbsp;Scholar</a>
+          <span class="sep">/</span>
+          <a href="tel:+886989158362">+886&nbsp;989&nbsp;158&nbsp;362</a>
+        </p>
+      </div>
+      <img class="portrait" src="img/nick.jpg" alt="Chung-Yin (Nick) Ho">
+    </div>
+
+    <div class="metrics">
+      <div class="metric"><div class="n">6 yrs</div><div class="l">@ MediaTek</div></div>
+      <div class="metric"><div class="n">Patent</div><div class="l">Allowed · US/EP/CN</div></div>
+      <div class="metric"><div class="n">4× IEEE</div><div class="l">53 citations · h-4</div></div>
+      <div class="metric"><div class="n">MWC 2026</div><div class="l">AI-RAN Alliance</div></div>
+      <div class="metric"><div class="n">On-device AI</div><div class="l">MCU · DSP · silicon</div></div>
     </div>
   </header>
+
+  <div class="flagship">
+    <div class="fl-lab">◆ Flagship — AI-RAN Alliance @ MWC 2026</div>
+    <div class="fl-h">AI Transmit Diversity &amp; Model Lifecycle Management</div>
+    <div class="fl-b">An AI-accelerated uplink proof-of-concept (AI TxD), exhibited as <b>“AI for 6G Uplink”</b> — an official <b>AI-RAN Alliance</b> demonstration shown at both the MediaTek and AI-RAN Alliance booths and <b>validated with Keysight</b>. I owned the UE-side pipeline end-to-end — model training → embedded implementation on modem MCU/DSP → integration into a functioning smartphone — yielding measurable gains in <b>uplink throughput, spectral efficiency, and reliability</b>, framed within a Model Lifecycle Management (LCM) architecture for AI in the air interface.</div>
+    <div class="fl-links">→ <a href="https://ai-ran.org/demonstrations" target="_blank" rel="noopener">AI-RAN Alliance listing</a> &nbsp;·&nbsp; <a href="https://www.keysight.com/us/en/cmp/mobile-world-congress-2026.html" target="_blank" rel="noopener">Keysight joint demo</a> &nbsp;·&nbsp; <a href="https://www.youtube.com/watch?v=7Z1yYp03zhg" target="_blank" rel="noopener">demo video ↗</a></div>
+  </div>
 
   <section id="summary">
     <div class="sec-head"><span class="sec-no">01</span><h2>Summary</h2><span class="sec-rule"></span></div>
     <p class="lead-p">
-      Communication system design engineer spanning the full wireless stack and the AI that now runs on it — with a track record of taking new domains from zero to shipped: SDR base stations, 3GPP standardization, and on-device AI. Six years at MediaTek across <b>3GPP RAN1/RAN2 with an allowed US patent</b>, <b>PHY-to-MAC system-level simulation</b>, and <b>machine learning deployed on modem MCU/DSP</b> — from model training and quantization to live silicon. Flagship work, “AI Transmit Diversity and Model Lifecycle Management,” was an official AI-RAN Alliance demonstration at MWC 2026, validated with Keysight. IEEE-published (53 citations); currently building agentic AI for system-level simulation and working with ray-tracing channel modeling at the AI-RAN frontier.
+      Senior Engineer in Communication System Design (<b>5G-Advanced / 6G</b>) at MediaTek, working where <b>cellular PHY meets machine learning</b>. My flagship work — an AI-accelerated uplink proof-of-concept (<b>AI Transmit Diversity</b>) — was an official <b>AI-RAN Alliance</b> demonstration at <b>MWC 2026</b>, validated with Keysight, framed within a Model Lifecycle Management (LCM) architecture for AI in the air interface. Six years across <b>3GPP RAN1 / RAN2</b> standardization (PHY-to-RRC), PHY-to-MAC system-level simulation, and <b>on-device machine learning</b> deployed to modem <b>MCU / DSP</b> — from quantization-aware training and model compression to live silicon. <b>IEEE-published</b> in 5G / NB-IoT system prototyping (53 citations, h-index 4); co-inventor on an allowed <b>US patent</b> (US/EP/CN family). Currently building <b>agentic AI</b> for system-level simulation and ray-tracing channel modeling at the AI-RAN frontier.
     </p>
   </section>
 
   <section id="highlights">
     <div class="sec-head"><span class="sec-no">02</span><h2>Highlights</h2><span class="sec-rule"></span></div>
     <ul class="hl">
-      <li><b>AI-RAN Alliance @ MWC 2026:</b> “AI Transmit Diversity and Model Lifecycle Management” — selected as an official AI-RAN Alliance demonstration and exhibited at <b>both the MediaTek and AI-RAN Alliance booths</b>, validated with Keysight. Sole owner of the UE-side AI proof-of-concept end-to-end: model training → MCU/DSP embedded implementation → live smartphone integration.</li>
-      <li><b>Patents:</b> two patent families as co-inventor (assignee MediaTek) — a US relay/multipath patent (US&nbsp;2024/0064605&nbsp;A1) at Notice of Allowance with EP + CN counterparts, plus a 2026 AI-uplink filing.</li>
-      <li><b>Research record:</b> 4 IEEE publications (DSP, GLOBECOM, INFOCOM), 53 citations, h-index 4; upstream open-source contributor to OpenAirInterface (OAI).</li>
-      <li><b>Full-stack span:</b> from 3GPP PHY-to-RRC and system-level simulation, to independently implementing an IAB/Relay framework and prototyping eNB/gNB across 4G LTE, NB-IoT, and 5G, to deploying learned models on modem MCU/DSP — plus current work on agentic simulation and ray-tracing channel modeling.</li>
+      <li><b>AI-RAN Alliance @ MWC 2026 —</b> sole owner of the UE-side AI proof-of-concept end-to-end: model training → MCU/DSP embedded implementation → live smartphone; exhibited at both the MediaTek and AI-RAN Alliance booths, validated with Keysight.</li>
+      <li><b>Patents —</b> two patent families as co-inventor (assignee MediaTek): a US relay/multipath patent (US 2024/0064605 A1) at Notice of Allowance with EP + CN counterparts, plus a 2026 AI-uplink filing.</li>
+      <li><b>Research record —</b> 4 IEEE publications (DSP, GLOBECOM, INFOCOM), 53 citations, h-index 4; upstream open-source contributor to OpenAirInterface (OAI).</li>
+      <li><b>Full-stack span —</b> from 3GPP PHY-to-RRC and system-level simulation, to independently implementing an IAB/Relay framework and prototyping eNB/gNB across 4G LTE, NB-IoT, and 5G, to deploying learned models on modem MCU/DSP.</li>
     </ul>
   </section>
 
@@ -197,10 +210,8 @@ footer{padding:34px 0 46px}
       </div>
       <div class="role-sub">Communication System Design — Advanced Communication Technology (R&amp;D)</div>
       <ul>
-        <li><span class="lead">AI TxD — AI-RAN Alliance @ MWC 2026:</span> Designed and delivered the UE-side proof-of-concept for “AI Transmit Diversity and Model Lifecycle Management,” exhibited as “AI for 6G Uplink” at both the MediaTek and AI-RAN Alliance booths. An “AI-enabling-AI” approach combining RAN-assisted AI decision-making, cloud-based site-specific model re-training, and over-the-air (OTA) model updates — yielding measurable gains in uplink throughput, spectral efficiency, and reliability. Owned the UE-side pipeline end-to-end: model training → embedded implementation on modem MCU/DSP → integration into a functioning smartphone.
-          <div class="meta-inline">↳ <a href="https://ai-ran.org/demonstrations" target="_blank" rel="noopener">AI-RAN Alliance listing</a> · <a href="https://www.keysight.com/us/en/cmp/mobile-world-congress-2026.html" target="_blank" rel="noopener">Keysight joint demo</a> · <a href="https://www.youtube.com/watch?v=7Z1yYp03zhg" target="_blank" rel="noopener">demo video ↗</a></div>
-        </li>
-        <li><span class="lead">Model Lifecycle Management (LCM):</span> Defined the LCM architecture for AI in the air interface — site-specific model re-training and OTA model update — so deployed models sustain performance across changing network environments, extending the work from a single model to a deployable framework.</li>
+        <li><span class="lead">AI TxD — AI-RAN @ MWC 2026:</span> Designed and delivered the UE-side proof-of-concept for “AI Transmit Diversity and Model Lifecycle Management,” exhibited as “AI for 6G Uplink.” An “AI-enabling-AI” approach combining RAN-assisted AI decision-making, cloud-based site-specific model re-training, and over-the-air (OTA) model updates — yielding measurable gains in uplink throughput, spectral efficiency, and reliability. Owned the UE-side pipeline end-to-end: training → embedded MCU/DSP implementation → live smartphone.</li>
+        <li><span class="lead">Model Lifecycle Management (LCM):</span> Defined the LCM architecture for AI in the air interface — site-specific re-training + OTA update — so deployed models sustain performance across changing network environments, extending the work from a single model to a deployable framework.</li>
         <li><span class="lead">Proprietary device AI:</span> Built AI solutions for UE across mobility, radio resource management (RRM), and UE transmission (TX), pairing signal-processing domain knowledge with on-device ML under tight latency and power budgets.</li>
         <li><span class="lead">AI-RAN frontier (current):</span> Developing agentic AI to advance a system-level simulator, and working with ray-tracing channel modeling to generate site-realistic training data for air-interface AI.</li>
       </ul>
@@ -214,7 +225,7 @@ footer{padding:34px 0 46px}
       <div class="role-sub">Communication System Design — 5G NR Research (R&amp;D)</div>
       <ul>
         <li><span class="lead">System-level simulation:</span> Built and extended a 5G NR system-level simulator modeling gNB–UE interaction, with full PHY-to-MAC modeling (channel, PHY, MAC) derived directly from 3GPP technical reports and contributions (TR/Tdoc).</li>
-        <li><span class="lead">3GPP standardization &amp; patents:</span> Worked across RAN1 (physical layer) and RAN2 (L2/RRC), reverse-engineering standard intent into correct simulation behavior; co-invented a PDCP-layer multipath relay patent (US&nbsp;2024/0064605&nbsp;A1 — allowed on first office action; family US/EP/CN).</li>
+        <li><span class="lead">3GPP standardization &amp; patents:</span> Worked across RAN1 (physical layer) and RAN2 (L2/RRC); co-invented a PDCP-layer multipath relay patent (US 2024/0064605 A1 — allowed on first office action; family US/EP/CN).</li>
         <li><span class="lead">Relay / IAB &amp; prototyping:</span> Independently implemented an IAB/Relay framework and prototyped eNB/gNB base stations across three RATs — 4G LTE, NB-IoT, and 5G — with command of the full 3GPP stack from PHY to RRC.</li>
       </ul>
     </div>
@@ -226,7 +237,7 @@ footer{padding:34px 0 46px}
       </div>
       <div class="role-sub">OpenAirInterface (OAI) — NB-IoT development team</div>
       <ul>
-        <li>Built the nFAPI-standard IF module enabling the MAC–PHY functional split; the module shipped into OAI’s <code>develop</code> and <a href="https://gitlab.eurecom.fr/oai/openairinterface5g/-/tree/develop-nb-iot" target="_blank" rel="noopener"><code>develop-nb-iot</code></a> branches, serving LTE, NB-IoT, and 5G.</li>
+        <li>Built the nFAPI-standard IF module enabling the MAC–PHY functional split; shipped into OAI’s <code>develop</code> and <a href="https://gitlab.eurecom.fr/oai/openairinterface5g/-/tree/develop-nb-iot" target="_blank" rel="noopener"><code>develop-nb-iot</code></a> branches (LTE / NB-IoT / 5G).</li>
         <li>Part of an open-source 3GPP Release-13 NB-IoT eNB collaboration with EURECOM, b&lt;&gt;com, and Nokia (France) — foundation of a sustained NB-IoT line of work later published across IEEE GLOBECOM, INFOCOM, and DSP.</li>
       </ul>
     </div>
@@ -238,7 +249,7 @@ footer{padding:34px 0 46px}
       </div>
       <div class="role-sub">Advisor: Prof. Ray-Guang Cheng</div>
       <ul>
-        <li><span class="lead">M-CORD — Project Leader:</span> Led system planning and design to virtualize an OAI base station into an XOS service on M-CORD using SDN/NFV (OpenStack, ONOS), in collaboration with NCTU and US ON.Lab.</li>
+        <li><span class="lead">M-CORD — Project Leader:</span> Led planning and design to virtualize an OAI base station into an XOS service on M-CORD using SDN/NFV (OpenStack, ONOS), with NCTU and US ON.Lab.</li>
       </ul>
     </div>
   </section>
@@ -246,67 +257,51 @@ footer{padding:34px 0 46px}
   <section id="patents">
     <div class="sec-head"><span class="sec-no">04</span><h2>Patents</h2><span class="sec-rule"></span></div>
     <div class="item">
-      <div class="t"><span class="patid"><a href="https://patents.google.com/patent/US20240064605A1/en" target="_blank" rel="noopener">US 2024/0064605 A1</a></span> <span class="tag-mono">— Notice of Allowance, 2026</span></div>
-      <div class="d">Method of Path Selection in PDCP Layer to Support Multipath Configuration. Path selection for UE-to-network relay using indirect-path side information to satisfy uplink QoS, at per-radio-bearer / per-QoS-flow / per-logical-channel granularity. Co-inventor; assignee MediaTek Inc.<br>
-        <span class="fam">Family:&nbsp; <a href="https://patents.google.com/patent/US20240064605A1/en" target="_blank" rel="noopener">US</a> · <a href="https://patents.google.com/patent/EP4325930A1/en" target="_blank" rel="noopener">EP 4325930 A1</a> · <a href="https://patents.google.com/patent/CN117596646A/en" target="_blank" rel="noopener">CN 117596646 A</a></span>
-      </div>
+      <div class="t"><span class="patid"><a href="https://patents.google.com/patent/US20240064605A1/en" target="_blank" rel="noopener">US 2024/0064605 A1</a></span> <span class="m">— Notice of Allowance, 2026</span></div>
+      <div class="d">Method of Path Selection in PDCP Layer to Support Multipath Configuration. Path selection for UE-to-network relay using indirect-path side information to satisfy uplink QoS, at per-radio-bearer / per-QoS-flow / per-logical-channel granularity. Co-inventor; assignee MediaTek Inc.</div>
+      <div class="fam">Family:&nbsp; <a href="https://patents.google.com/patent/US20240064605A1/en" target="_blank" rel="noopener">US</a> · <a href="https://patents.google.com/patent/EP4325930A1/en" target="_blank" rel="noopener">EP 4325930 A1</a> · <a href="https://patents.google.com/patent/CN117596646A/en" target="_blank" rel="noopener">CN 117596646 A</a></div>
     </div>
     <div class="item">
-      <div class="t"><span class="patid">US Patent Application — Serial 19/667,845</span> <span class="tag-mono">— filed 2026 · application pending (unpublished)</span></div>
+      <div class="t"><span class="patid">US Patent Application — Serial 19/667,845</span> <span class="m">— filed 2026</span></div>
       <div class="d">Methods and User Equipment (UE) of Single-Layer Uplink Transmission. Co-inventor; assignee MediaTek Inc. Related to the AI-accelerated uplink work demonstrated at MWC 2026.</div>
     </div>
   </section>
 
   <section id="publications">
     <div class="sec-head"><span class="sec-no">05</span><h2>Selected Publications</h2><span class="sec-rule"></span></div>
-    <div class="pub">
-      <div class="pt">Design and Prototype of a Virtualized 5G Infrastructure Supporting Network Slicing</div>
-      <div class="pv"><a href="https://ieeexplore.ieee.org/document/8631816/" target="_blank" rel="noopener">IEEE DSP 2018 <span class="xarrow">↗</span></a></div>
-    </div>
-    <div class="pub">
-      <div class="pt">Prototyping of Open-Source NB-IoT Network</div>
-      <div class="pv"><a href="https://ieeexplore.ieee.org/document/9322398/" target="_blank" rel="noopener">IEEE GLOBECOM 2020 <span class="xarrow">↗</span></a></div>
-    </div>
-    <div class="pub">
-      <div class="pt">Design and Implementation of an Open-Source NB-IoT eNB (Demo Abstract)</div>
-      <div class="pv"><a href="https://ieeexplore.ieee.org/document/8406868/" target="_blank" rel="noopener">IEEE INFOCOM Wksp 2018 <span class="xarrow">↗</span></a></div>
-    </div>
-    <div class="pub">
-      <div class="pt">Open NB-IoT Network in a PC</div>
-      <div class="pv"><a href="https://ieeexplore.ieee.org/document/9024650/" target="_blank" rel="noopener">IEEE GLOBECOM Wksp 2019 <span class="xarrow">↗</span></a></div>
-    </div>
-    <p class="scholar-note">Full record & citations on <a href="https://scholar.google.com/citations?user=VZj4-8kAAAAJ&amp;hl=en" target="_blank" rel="noopener">Google Scholar</a> — 53 citations · h-index 4.</p>
+    <div class="pub"><div class="pt">Design and Prototype of a Virtualized 5G Infrastructure Supporting Network Slicing</div><div class="pv"><a href="https://ieeexplore.ieee.org/document/8631816/" target="_blank" rel="noopener">IEEE DSP 2018 ↗</a></div></div>
+    <div class="pub"><div class="pt">Prototyping of Open-Source NB-IoT Network</div><div class="pv"><a href="https://ieeexplore.ieee.org/document/9322398/" target="_blank" rel="noopener">IEEE GLOBECOM 2020 ↗</a></div></div>
+    <div class="pub"><div class="pt">Design and Implementation of an Open-Source NB-IoT eNB (Demo Abstract)</div><div class="pv"><a href="https://ieeexplore.ieee.org/document/8406868/" target="_blank" rel="noopener">IEEE INFOCOM Wksp 2018 ↗</a></div></div>
+    <div class="pub"><div class="pt">Open NB-IoT Network in a PC</div><div class="pv"><a href="https://ieeexplore.ieee.org/document/9024650/" target="_blank" rel="noopener">IEEE GLOBECOM Wksp 2019 ↗</a></div></div>
+    <p class="scholar-note">Full record &amp; citations on <a href="https://scholar.google.com/citations?user=VZj4-8kAAAAJ&amp;hl=en" target="_blank" rel="noopener">Google Scholar</a> — 53 citations · h-index 4.</p>
   </section>
 
   <section id="skills">
     <div class="sec-head"><span class="sec-no">06</span><h2>Technical Skills</h2><span class="sec-rule"></span></div>
-    <div class="skills">
-      <div class="k">AI / ML</div>
-      <div class="v">Model training &amp; deployment for communication systems; on-device inference (modem MCU/DSP); quantization-aware training, model compression &amp; edge optimization; model lifecycle management (LCM); agentic AI; time-series prediction</div>
-      <div class="k">Wireless / 3GPP</div>
-      <div class="v">5G NR, 5G-Advanced, 6G, NB-IoT, 4G LTE; PHY-to-RRC stack; RAN1 / RAN2 specifications &amp; TR/Tdoc; IAB / Relay; system-level simulation</div>
-      <div class="k">Tools / Platforms</div>
-      <div class="v">Ray-tracing channel simulation; OpenAirInterface (OAI); SDR-based eNB/gNB prototyping; SDN / NFV (OpenStack, ONOS)</div>
-      <div class="k">Programming</div>
-      <div class="v">C, C++, Python; DSP / embedded implementation; Linux, Git</div>
-    </div>
+    <div class="skblock"><div class="sk-k">AI / ML</div><div class="chips">
+      <span class="chip">On-device inference (MCU/DSP)</span><span class="chip">Model training &amp; deployment</span><span class="chip">Quantization-aware training</span><span class="chip">Model compression</span><span class="chip">Edge optimization</span><span class="chip">Model Lifecycle Management (LCM)</span><span class="chip">Agentic AI</span><span class="chip">Time-series prediction</span>
+    </div></div>
+    <div class="skblock"><div class="sk-k">Wireless / 3GPP</div><div class="chips">
+      <span class="chip">5G NR</span><span class="chip">5G-Advanced</span><span class="chip">6G</span><span class="chip">NB-IoT</span><span class="chip">4G LTE</span><span class="chip">PHY-to-RRC stack</span><span class="chip">RAN1 / RAN2</span><span class="chip">TR / Tdoc</span><span class="chip">IAB / Relay</span><span class="chip">System-level simulation</span>
+    </div></div>
+    <div class="skblock"><div class="sk-k">Tools / Platforms</div><div class="chips">
+      <span class="chip">Ray-tracing channel simulation</span><span class="chip">OpenAirInterface (OAI)</span><span class="chip">SDR eNB/gNB prototyping</span><span class="chip">SDN / NFV (OpenStack, ONOS)</span>
+    </div></div>
+    <div class="skblock"><div class="sk-k">Programming</div><div class="chips">
+      <span class="chip">C</span><span class="chip">C++</span><span class="chip">Python</span><span class="chip">DSP / embedded</span><span class="chip">Linux</span><span class="chip">Git</span>
+    </div></div>
   </section>
 
   <section id="education">
     <div class="sec-head"><span class="sec-no">07</span><h2>Education</h2><span class="sec-rule"></span></div>
     <div class="edu">
-      <div class="d">M.S., Electronics Engineering <span class="em">&amp;</span> B.S., Electrical Engineering &amp; Computer Science<br><span class="em">National Taiwan University of Science and Technology (NTUST)</span></div>
+      <div class="d">M.S., Electronics Engineering &nbsp;&amp;&nbsp; B.S., Electrical Engineering &amp; Computer Science<span class="em">National Taiwan University of Science and Technology (NTUST)</span></div>
       <div class="m">2013 – 2019</div>
     </div>
   </section>
 
   <footer>
-    <div class="foot-line">
-      Chung-Yin (Nick) Ho
-      <span class="sep">/</span> Hsinchu, Taiwan
-      <span class="sep">/</span> <a href="mailto:mtk21750@gmail.com">mtk21750@gmail.com</a>
-      <span class="sep">/</span> blog.alos.uk
-    </div>
+    <div class="foot-line">Chung-Yin (Nick) Ho<span class="sep">/</span>Hsinchu, Taiwan<span class="sep">/</span><a href="mailto:mtk21750@gmail.com">mtk21750@gmail.com</a><span class="sep">/</span><a href="https://blog.alos.uk">blog.alos.uk</a></div>
   </footer>
 
 </div>
